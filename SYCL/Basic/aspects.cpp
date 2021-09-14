@@ -1,9 +1,9 @@
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: env SYCL_DEVICE_FILTER=%sycl_be %t.out
 //
-// Hip is missing some of the parameters tested here so it fails with ROCm for
+// Hip is missing some of the parameters tested here so it fails with Hip for
 // NVIDIA
-// XFAIL: rocm_nvidia
+// XFAIL: hip_nvidia
 
 //==--------------- aspects.cpp - SYCL device test ------------------------==//
 //

@@ -4,8 +4,8 @@
 
 // XFAIL: level_zero
 // UNSUPPORTED: cuda
-// UNSUPPORTED: rocm_nvidia
-// UNSUPPORTED: rocm_amd
+// UNSUPPORTED: hip_nvidia
+// UNSUPPORTED: hip_amd
 
 #include <sycl/sycl.hpp>
 

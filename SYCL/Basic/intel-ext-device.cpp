@@ -4,8 +4,8 @@
 //
 // REQUIRES: gpu
 // UNSUPPORTED: cuda
-// UNSUPPORTED: rocm_nvidia
-// UNSUPPORTED: rocm_amd
+// UNSUPPORTED: hip_nvidia
+// UNSUPPORTED: hip_amd
 
 //==--------- intel-ext-device.cpp - SYCL device test ------------==//
 //
