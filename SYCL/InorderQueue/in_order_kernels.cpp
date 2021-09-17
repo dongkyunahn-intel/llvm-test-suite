@@ -108,5 +108,6 @@ int main() {
     }
   }
 
+  std::cout << "Passed\n";
   return 0;
 }
