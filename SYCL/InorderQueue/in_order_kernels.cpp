@@ -97,7 +97,8 @@ int main() {
 
     for (int i = 0; i < N; i++) {
       if (A[i] != 11) {
-        std::cerr << "Mismatch at index " << i << " : " << A[i] << " != 11 (expected)" << std::endl;
+        std::cerr << "Mismatch at index " << i << " : " << A[i]
+                  << " != 11 (expected)" << std::endl;
         err_cnt++;
       }
     }
