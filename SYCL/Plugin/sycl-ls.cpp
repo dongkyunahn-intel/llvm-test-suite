@@ -1,5 +1,5 @@
 // RUN: sycl-ls --verbose | grep "Device \[" | wc -l >%t.verbose.out
-// RUN: sycl-ls | wc -l >%t.concise.out
+// RUN: sycl-ls | grep "^\[[a-z0-9_]*:[a-z]*:[0-9]*\]\ " | wc -l >%t.concise.out
 // RUN: diff %t.verbose.out %t.concise.out
 
 //==---- sycl-ls.cpp - SYCL test for consistency of sycl-ls output ---------==//
