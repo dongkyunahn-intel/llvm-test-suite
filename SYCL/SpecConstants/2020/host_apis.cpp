@@ -32,8 +32,8 @@ int main() {
   sycl::queue Q;
 
   // No support for host device and esimd_emulator so far
-  if (Q.is_host()
-      || Q.get_backend() == cl::sycl::backend::ext_intel_esimd_emulator)
+  if (Q.is_host() ||
+      Q.get_backend() == cl::sycl::backend::ext_intel_esimd_emulator)
     return 0;
 
   // The code is needed to just have device images in the executable
