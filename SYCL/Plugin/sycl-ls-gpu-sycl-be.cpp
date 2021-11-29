@@ -1,4 +1,4 @@
-// REQUIRES: gpu, cuda, hip, opencl, sycl-ls
+// REQUIRES: gpu, cuda, hip, opencl, esimd_emulator, sycl-ls
 
 // RUN: sycl-ls --verbose >%t.default.out
 // RUN: FileCheck %s --check-prefixes=CHECK-BUILTIN-GPU-OPENCL,CHECK-CUSTOM-GPU-OPENCL --input-file %t.default.out
@@ -21,8 +21,13 @@
 // CHECK-BUILTIN-GPU-HIP: gpu_selector(){{.*}}gpu, {{.*}}HIP
 // CHECK-CUSTOM-GPU-HIP: custom_selector(gpu){{.*}}gpu, {{.*}}HIP
 
-//==---- sycl-ls-gpu-sycl-be.cpp - SYCL test for discovered/selected devices
-//--==//
+// RUN: env SYCL_DEVICE_FILTER=esimd_emulator sycl-ls --verbose >%t.esimd_emulator.out
+// RUN: FileCheck %s --check-prefixes=CHECK-BUILTIN-GPU-ESIMD-EMULATOR,CHECK-CUSTOM-GPU-ESIMD-EMULATOR --input-file %t.esimdemulator.out
+
+// CHECK-BUILTIN-GPU-ESIMD-EMULATOR: gpu_selector(){{.*}}gpu, {{.*}}ESIMD_EMULATOR
+// CHECK-CUSTOM-GPU-ESIMD-EMULATOR: custom_selector(gpu){{.*}}gpu, {{.*}}ESIMD_EMULATOR
+
+//==-- sycl-ls-gpu-sycl-be.cpp - SYCL test for discovered/selected devices -==//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.

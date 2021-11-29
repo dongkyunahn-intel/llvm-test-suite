@@ -43,6 +43,7 @@ int main() {
   bool HasHIPDevices = false;
   bool HasOpenCLGPU = false;
   bool HasLevelZeroGPU = false;
+  bool HasESIMDEmuDevices = false;
 
   for (auto &Dev : Devs) {
     auto Backend = Dev.get_platform().get_backend();
@@ -54,6 +55,8 @@ int main() {
       HasCUDADevices = true;
     } else if (Backend == backend::ext_oneapi_hip) {
       HasHIPDevices = true;
+    } else if (Backend == backend::ext_intel_esimd_emulator) {
+      HasESIMDEmuDevices = true;
     }
   }
 
@@ -72,6 +75,7 @@ int main() {
   std::cout << "HasHIPDevices       = " << HasHIPDevices << std::endl;
   std::cout << "HasOpenCLGPU        = " << HasOpenCLGPU << std::endl;
   std::cout << "HasLevelZeroGPU     = " << HasLevelZeroGPU << std::endl;
+  std::cout << "HasESIMDEmuDevices  = " << HasESIMDEmuDevices << std::endl;
 
   if (!CPUs.empty()) {
     std::cout << "Test 'cpu'";
@@ -217,5 +221,18 @@ int main() {
     std::cout << "...PASS" << std::endl;
   }
 
+  if (HasESIMDEmuDevices) {
+    std::cout << "Test 'esimd_emulator'";
+    device d21(ext::oneapi::filter_selector("esimd_emulator"));
+    assert(d21.get_platform().get_backend() ==
+           backend::ext_intel_esimd_emulator);
+    std::cout << "...PASS" << std::endl;
+
+    std::cout << "test 'esimd_emulator:gpu'";
+    device d22(ext::oneapi::filter_selector("esimd_emulator:gpu"));
+    assert(d22.is_gpu() && d22.get_platform().get_backend() ==
+                               backend::ext_intel_esimd_emulator);
+    std::cout << "...PASS" << std::endl;
+  }
   return 0;
 }
