@@ -4,6 +4,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
 // XFAIL: level_zero&&gpu
+// UNSUPPORTED: esimd_emulator
 
 //==---------- reinterpret.cpp --- SYCL buffer reinterpret basic test ------==//
 //

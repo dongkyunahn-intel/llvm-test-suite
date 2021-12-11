@@ -2,6 +2,7 @@
 // RUN: %HOST_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 
 //==--------------- event.cpp - SYCL event test ----------------------------==//
 //

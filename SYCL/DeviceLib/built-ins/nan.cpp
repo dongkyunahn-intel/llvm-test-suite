@@ -6,6 +6,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 
 // XFAIL: cuda
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

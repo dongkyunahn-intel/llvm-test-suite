@@ -9,6 +9,7 @@
 //
 // Hits an assertion on AMD with multiple GPUs available, fails trace on Nvidia.
 // XFAIL: hip_amd || hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <iostream>

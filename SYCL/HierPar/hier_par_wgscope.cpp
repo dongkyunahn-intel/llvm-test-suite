@@ -7,6 +7,7 @@
 //
 // Linking issues on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 //==- hier_par_wgscope.cpp --- hierarchical parallelism test for WG scope---==//
 //

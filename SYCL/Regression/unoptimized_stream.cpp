@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // UNSUPPORTED: cuda
+// UNSUPPORTED: esimd_emulator
 // Disable test due to flaky failure on CUDA(issue #387)
 
 // NOTE: The libclc target used by the CUDA backend used to generate atomic load

@@ -6,6 +6,7 @@
 //
 // Incorrect results with hip on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

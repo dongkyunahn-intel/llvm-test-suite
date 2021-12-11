@@ -39,6 +39,7 @@
 // REQUIRES: gpu
 //
 // XFAIL: cuda || hip
+// UNSUPPORTED: esimd_emulator
 //
 // TODO: Update this test when SYCL_DEVICE_FILTER support in enabled.
 

@@ -7,6 +7,7 @@
 
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple -sycl-std=2020 %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER SYCL_PARALLEL_FOR_RANGE_ROUNDING_TRACE=1 %t.out %GPU_CHECK_PLACEHOLDER --check-prefix CHECK-ENABLED
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

@@ -6,6 +6,7 @@
 // The test is failing sporadically on Windows OpenCL RTs
 // Disabling on windows until fixed
 // UNSUPPORTED: windows
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <sycl/ext/intel/fpga_device_selector.hpp>

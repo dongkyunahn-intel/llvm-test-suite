@@ -1,4 +1,5 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // CUDA and HIP don't support printf.
 //
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple %s -o %t.out

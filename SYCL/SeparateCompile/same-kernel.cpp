@@ -16,6 +16,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t-same-kernel.exe
 // RUN: %GPU_RUN_PLACEHOLDER %t-same-kernel.exe
 // RUN: %ACC_RUN_PLACEHOLDER %t-same-kernel.exe
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

@@ -3,6 +3,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 
 //==- free_function_queries.cpp - SYCL free function queries test -=//
 //

@@ -6,6 +6,7 @@
 //
 // Crashes on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 //==-- group.cpp - Regression tests for cl::sycl::group API bug fixes. -----==//
 //

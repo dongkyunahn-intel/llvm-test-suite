@@ -2,6 +2,7 @@
 // RUN: env SYCL_PI_TRACE=-1 SYCL_DEVICE_FILTER=%sycl_be %t.out | FileCheck %s
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 
 // Debug option -g is not passed to device code compiler when CL-style driver
 // is used and /DEBUG options is passed.

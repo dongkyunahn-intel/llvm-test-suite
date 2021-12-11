@@ -4,6 +4,7 @@
 // RUN: env SYCL_PI_TRACE=-1 %ACC_RUN_PLACEHOLDER %t.out %ACC_CHECK_PLACEHOLDER
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 // Test tracing of the Plugin Interface
 

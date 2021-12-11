@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // TODO: re-enable on cuda device.
 // See https://github.com/intel/llvm/issues/1542#issuecomment-707877817 for more
 // details.

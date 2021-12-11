@@ -7,6 +7,7 @@
 //
 // Missing built-ins on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 //==------------------ stream.cpp - SYCL stream basic test -----------------==//
 //

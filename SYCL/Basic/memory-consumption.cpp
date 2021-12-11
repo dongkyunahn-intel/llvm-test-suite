@@ -6,6 +6,7 @@
 // processing OCL_ICD_FILENAMES debug environment variable which causes
 // extra memory allocation on device creation.
 // UNSUPPORTED: windows, opencl
+// UNSUPPORTED: esimd_emulator
 //
 //==-----memory-consumption.cpp - SYCL memory consumption basic test ------==//
 //

@@ -1,4 +1,5 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 //
 // RUN: %clangxx -fsycl %s -D__SYCL_INTERNAL_API -o %t.out
 // RUN: %HOST_RUN_PLACEHOLDER %t.out %HOST_CHECK_PLACEHOLDER

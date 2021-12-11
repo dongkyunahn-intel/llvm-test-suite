@@ -9,6 +9,7 @@
 
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
+// UNSUPPORTED: esimd_emulator
 
 // This test performs basic checks of parallel_for(nd_range, reduction, func)
 // with reductions initialized with 1-dimensional read_write accessor

@@ -7,6 +7,7 @@
 //
 // Linking issues on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 // SYCL ordered queue kernel shortcut test
 //

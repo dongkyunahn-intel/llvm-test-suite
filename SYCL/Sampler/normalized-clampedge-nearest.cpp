@@ -6,6 +6,7 @@
 // Missing __spirv_ImageWrite, __spirv_SampledImage,
 // __spirv_ImageSampleExplicitLod on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 /*
     This file sets up an image, initializes it with data,

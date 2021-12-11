@@ -15,6 +15,7 @@
 //
 // Linking issues on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 // This test checks correctness of hierarchical kernel execution when there is
 // code and data in the work group scope, and when the test is compiled with

@@ -5,6 +5,7 @@
 // No execution of FPGA because it does not support images
 //
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // CUDA cannot support OpenCL spec conform images.
 
 //==-------------- image_access.cpp - SYCL image accessors test  -----------==//

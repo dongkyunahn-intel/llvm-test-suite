@@ -1,4 +1,5 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 //
 // FIXME Disable fallback assert so that it doesn't interferes with number of
 // program builds at run-time

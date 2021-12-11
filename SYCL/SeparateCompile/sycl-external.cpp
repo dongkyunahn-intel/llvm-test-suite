@@ -18,6 +18,7 @@
 //
 // Linking issues with HIP AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <iostream>

@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // Specialization constants are not supported on FPGA h/w and emulator.
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 //
 //==----------- spec_const_hw.cpp ------------------------------------------==//
 //

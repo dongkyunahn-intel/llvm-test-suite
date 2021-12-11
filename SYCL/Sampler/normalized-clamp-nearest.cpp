@@ -7,6 +7,7 @@
 
 // TODO: enable this test after flaky bug is gone on Windows
 // UNSUPPORTED: windows
+// UNSUPPORTED: esimd_emulator
 
 // LevelZero has a bug wherein it always returns the first pixel value.
 // Will re-enable once fixed.

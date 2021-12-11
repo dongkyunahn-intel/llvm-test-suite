@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 // XFAIL: hip
+// UNSUPPORTED: esimd_emulator
 
 //==--- kernel-and-program.cpp - SYCL kernel/program test ------------------==//
 //

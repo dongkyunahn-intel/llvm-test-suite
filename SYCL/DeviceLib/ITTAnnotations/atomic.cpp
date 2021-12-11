@@ -1,4 +1,5 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 
 // RUN: %clangxx -fsycl -fsycl-instrument-device-code %s -o %t.out
 // RUN: %HOST_RUN_PLACEHOLDER %t.out

@@ -2,6 +2,7 @@
 // RUN: env SYCL_DEVICE_FILTER=%sycl_be %t.out
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 //===- MultipleDevices.cpp - Test checking multi-device execution --------===//
 //

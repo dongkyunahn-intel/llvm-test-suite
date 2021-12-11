@@ -5,6 +5,7 @@
 //
 // Fail is flaky for level_zero, enable when fixed.
 // UNSUPPORTED: level_zero
+// UNSUPPORTED: esimd_emulator
 
 //==--- kernel_info.cpp - SYCL kernel info test ----------------------------==//
 //
