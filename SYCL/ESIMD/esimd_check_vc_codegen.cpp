@@ -1,4 +1,4 @@
-//==---------------- vadd_1d.cpp  - DPC++ ESIMD on-device test -------------==//
+//==-------- esimd_check_vc_codegen.cpp - DPC++ ESIMD on-device test -------==//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -7,10 +7,10 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO: esimd_emulator support - enable __esimd_oword_ld_unaligned
-// XFAIL: esimd_emulator
+// esimd_emulator does not support online-compiler that invokes 'piProgramBuild'
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
-// RUN: %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env SYCL_PI_TRACE=-1 %GPU_RUN_PLACEHOLDER %t.out 2>&1 %GPU_CHECK_PLACEHOLDER
 
 #include "esimd_test_utils.hpp"
 
@@ -99,5 +99,6 @@ int main(void) {
   return err_cnt > 0 ? 1 : 0;
 }
 
-// 'CHECK' commands for checking 'vc-codegen' are moved to
-// 'sycl_esimd_mix_check_build_opts.cpp'
+// CHECK: ---> piProgramBuild(
+// CHECK: <const char *>: {{.*}}-vc-codegen
+// CHECK: ) ---> pi_result : PI_SUCCESS
