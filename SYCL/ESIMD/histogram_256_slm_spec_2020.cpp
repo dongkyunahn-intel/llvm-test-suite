@@ -1,6 +1,8 @@
 // TODO enable on Windows
 // REQUIRES: linux && gpu
 // UNSUPPORTED: cuda || hip
+// TODO: esimd_emulator support - enable online compiler
+// XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out 16
 

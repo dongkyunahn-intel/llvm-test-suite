@@ -2,6 +2,8 @@
 // UNSUPPORTED: cuda || hip
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// TODO: esimd_emulator support - enable 'this_sub_group'
+// XFAIL: esimd_emulator
 
 // This test checks loads from SPIRV builtin globals work correctly in ESIMD.
 

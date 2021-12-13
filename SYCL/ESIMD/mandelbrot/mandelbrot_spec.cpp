@@ -8,6 +8,8 @@
 // TODO enable on Windows
 // REQUIRES: linux && gpu
 // UNSUPPORTED: cuda || hip
+// TODO: esimd_emulator support - enable online compiler
+// XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -I%S/.. -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out %T/output_spec.ppm %S/golden_hw.ppm 512 -2.09798 -1.19798 0.004 4.0
 

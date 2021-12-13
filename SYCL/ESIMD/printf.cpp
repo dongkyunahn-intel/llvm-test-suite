@@ -7,9 +7,10 @@
 //===----------------------------------------------------------------------===//
 //
 // REQUIRES: gpu
-// UNSUPPORTED: cuda || hip || esimd_emulator
-// CUDA and HIP don't support printf. esimd_emulator plug-in does not support
-// kernel build.
+// UNSUPPORTED: cuda || hip
+// CUDA and HIP don't support printf.
+// TODO: esimd_emulator support - enable 'single_task()'
+// XFAIL: esimd_emulator
 //
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out %GPU_CHECK_PLACEHOLDER
