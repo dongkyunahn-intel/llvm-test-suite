@@ -1,4 +1,4 @@
-//==----------- sycl_esimd_mix.cpp  - DPC++ ESIMD on-device test -----------==//
+//==--- sycl_esimd_mix_check_build_opts.cpp - DPC++ ESIMD on-device test ---==//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -10,11 +10,11 @@
 
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO/FIXME: esimd_emulator support - timeout
-// XFAIL: esimd_emulator
+// esimd_emulator does not support online-compiler that invokes 'piProgramBuild'
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
-// RUN: %GPU_RUN_PLACEHOLDER %t.out
-// RUN: env SYCL_PROGRAM_COMPILE_OPTIONS="-g" %GPU_RUN_PLACEHOLDER %t.out
+// RUN: env SYCL_PI_TRACE=-1 %GPU_RUN_PLACEHOLDER %t.out 2>&1 %GPU_CHECK_PLACEHOLDER --check-prefixes=CHECK,CHECK-NO-VAR
+// RUN: env SYCL_PROGRAM_COMPILE_OPTIONS="-g" SYCL_PI_TRACE=-1 %GPU_RUN_PLACEHOLDER %t.out 2>&1 %GPU_CHECK_PLACEHOLDER --check-prefixes=CHECK,CHECK-WITH-VAR
 
 #include "esimd_test_utils.hpp"
 
@@ -125,5 +125,24 @@ int main(void) {
   return 0;
 }
 
-// 'CHECK' commands for checking 'vc-codegen' are moved to
-// 'sycl_esimd_mix_check_build_opts.cpp'
+// Regular SYCL kernel is compiled without -vc-codegen option
+
+// CHECK-LABEL: ---> piProgramBuild(
+// CHECK-NOT: -vc-codegen
+// CHECK-WITH-VAR: -g
+// CHECK-NOT: -vc-codegen
+// CHECK: ) ---> pi_result : PI_SUCCESS
+// CHECK-LABEL: ---> piKernelCreate(
+// CHECK: <const char *>: {{.*}}SyclKernel
+// CHECK: ) ---> pi_result : PI_SUCCESS
+
+// For ESIMD kernels, -vc-codegen option is always preserved,
+// regardless of SYCL_PROGRAM_COMPILE_OPTIONS value.
+
+// CHECK-LABEL: ---> piProgramBuild(
+// CHECK-NO-VAR: -vc-codegen
+// CHECK-WITH-VAR: -g -vc-codegen
+// CHECK: ) ---> pi_result : PI_SUCCESS
+// CHECK-LABEL: ---> piKernelCreate(
+// CHECK: <const char *>: {{.*}}EsimdKernel
+// CHECK: ) ---> pi_result : PI_SUCCESS
