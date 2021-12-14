@@ -10,8 +10,8 @@
 
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO/FIXME: esimd_emulator support - timeout
-// XFAIL: esimd_emulator
+// esimd_emulator supports only ESIMD kernels
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: env SYCL_PROGRAM_COMPILE_OPTIONS="-g" %GPU_RUN_PLACEHOLDER %t.out

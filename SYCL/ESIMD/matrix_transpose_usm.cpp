@@ -7,8 +7,6 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO: esimd_emulator support - resolve timeout
-// XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %HOST_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
@@ -18,6 +16,11 @@
 #include <CL/sycl.hpp>
 #include <iostream>
 #include <sycl/ext/intel/experimental/esimd.hpp>
+
+// TODO: For esimd_emulator, completion time depends on CPU
+// performance. MAX_SIZE may need to be adjusted in order to prevent
+// timeout failure because of slow CPU.
+#define ESIMD_EMULATOR_MATRIX_MAX_SIZE (1U << 8)
 
 using namespace cl::sycl;
 using namespace std;
@@ -244,6 +247,15 @@ ESIMD_INLINE void transpose16(int *buf, int MZ, int block_col, int block_row) {
 }
 
 bool runTest(queue &q, unsigned MZ, unsigned block_size) {
+  if ((MZ > ESIMD_EMULATOR_MATRIX_MAX_SIZE) &&
+      (q.get_context().get_platform().get_backend() ==
+       cl::sycl::backend::ext_intel_esimd_emulator)) {
+    cerr << "\nMatrix larger than limit size ("
+         << ESIMD_EMULATOR_MATRIX_MAX_SIZE
+         << ") is ignored for esimd_emulator due to timeout.\n";
+    cerr << "Requested matrix size = " << MZ << "\n";
+    return true;
+  }
   int *M = malloc_shared<int>(MZ * MZ, q);
 
   initMatrix(M, MZ);
