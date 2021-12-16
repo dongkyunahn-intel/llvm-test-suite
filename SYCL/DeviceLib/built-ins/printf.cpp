@@ -3,7 +3,7 @@
 
 // esimd_emulator : Warning messages from CM_EMU library for emulation
 // support cause failures for 'CHECK' commands.
-// TODO - Remove "XFAIL:" mark when those messages are suppressed
+// TODO - Remove "XFAIL" mark when those messages are suppressed
 // XFAIL: esimd_emulator
 
 //
