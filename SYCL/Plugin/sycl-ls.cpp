@@ -15,4 +15,4 @@
 
 // esimd_emulator : Warning messages from CM_EMU library for emulation
 // support cause failures for 'diff' commands.
-// TODO: Remove "grep" command when those messages are suppressed
+// TODO - Remove "grep" command when those messages are suppressed
