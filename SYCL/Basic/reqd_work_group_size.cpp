@@ -5,6 +5,7 @@
 //
 // Failing negative test with HIP
 // XFAIL: hip
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

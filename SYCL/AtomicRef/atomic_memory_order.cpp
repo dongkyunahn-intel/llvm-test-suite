@@ -6,6 +6,7 @@
 // L0, OpenCL, and HIP backends don't currently support
 // info::device::atomic_memory_order_capabilities
 // UNSUPPORTED: level_zero || opencl || hip
+// UNSUPPORTED: esimd_emulator
 
 // NOTE: General tests for atomic memory order capabilities.
 

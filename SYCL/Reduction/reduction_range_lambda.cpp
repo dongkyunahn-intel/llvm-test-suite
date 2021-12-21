@@ -2,6 +2,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 
 // This test performs basic checks of parallel_for(range, reduction, lambda)
 // with reductions initialized with 1-dimensional accessor accessing

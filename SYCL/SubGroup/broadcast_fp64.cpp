@@ -6,6 +6,7 @@
 //
 // Missing __spirv_GroupBroadcast on AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 //==----- broadcast_fp64.cpp - SYCL sub_group broadcast test ----*- C++ -*--==//
 //

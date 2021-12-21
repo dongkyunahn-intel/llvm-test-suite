@@ -1,5 +1,6 @@
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple -D__SYCL_INTERNAL_API %s -o %t.out
 // RUN: env SYCL_DEVICE_FILTER=%sycl_be %t.out
+// UNSUPPORTED: esimd_emulator
 //
 //==----------------- get_backend.cpp ------------------------==//
 // This is a test of get_backend().

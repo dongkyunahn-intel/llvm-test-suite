@@ -1,4 +1,5 @@
 // REQUIRES: cpu,linux
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -DSYCL_ENABLE_FALLBACK_ASSERT -fsycl %s -o %t.out
 // (see the other RUN lines below; it is a bit complicated)
 //

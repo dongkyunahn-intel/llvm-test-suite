@@ -2,6 +2,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER SYCL_PI_TRACE=-1 %t.out %GPU_CHECK_PLACEHOLDER
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 
 // Debug option -g is not passed to device code compiler when CL-style driver
 // is used and /DEBUG options is passed.

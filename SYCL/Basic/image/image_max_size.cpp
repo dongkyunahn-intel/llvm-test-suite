@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // UNSUPPORTED: cuda || hip || (windows && opencl && gpu)
+// UNSUPPORTED: esimd_emulator
 // CUDA does not support info::device::image3d_max_width query.
 // TODO: Irregular runtime fails on Windows/opencl:gpu require analysis.
 

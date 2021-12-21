@@ -4,6 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // UNSUPPORTED: cuda
+// UNSUPPORTED: esimd_emulator
 
 //==- handler.cpp - SYCL handler explicit memory operations test -*- C++-*--==//
 //

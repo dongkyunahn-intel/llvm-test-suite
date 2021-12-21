@@ -7,6 +7,7 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -I%S/Inputs -D__SYCL_INTERNAL_API -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out 16
 

@@ -1,6 +1,7 @@
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple %s -o %t.out
 // REQUIRES: gpu
 // UNSUPPORTED: cuda, hip
+// UNSUPPORTED: esimd_emulator
 // GroupNonUniformBallot capability is supported on Intel GPU only
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 

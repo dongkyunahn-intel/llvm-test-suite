@@ -5,6 +5,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out %ACC_CHECK_PLACEHOLDER
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 //==-------------- copy.cpp - SYCL stream obect auto flushing test ---------==//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.

@@ -8,6 +8,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t1.out
 // RUN: %GPU_RUN_PLACEHOLDER %t1.out
 // RUN: %ACC_RUN_PLACEHOLDER %t1.out
+// UNSUPPORTED: esimd_emulator
 
 //==--------------- multi_ptr.cpp - SYCL multi_ptr test --------------------==//
 //

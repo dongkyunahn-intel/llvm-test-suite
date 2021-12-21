@@ -6,6 +6,7 @@
 // Missing __spirv_GroupFMax on AMD, error message `Group algorithms are not
 // supported on host device` on Nvidia.
 // XFAIL: hip_amd || hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 // RUNx: %HOST_RUN_PLACEHOLDER %t.out
 // TODO: Enable the test for HOST when it supports ext::oneapi::reduce() and

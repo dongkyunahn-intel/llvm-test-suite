@@ -5,6 +5,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // UNSUPPORTED: level_zero && windows
+// UNSUPPORTED: esimd_emulator
 // XFAIL: cuda
 
 // LevelZero on Windows hangs with normalized coordinates. Waiting on fix.

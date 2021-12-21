@@ -4,6 +4,7 @@
 //
 // Unsupported hip call on AMD
 // UNSUPPORTED: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 // Test image-specific printers of the Plugin Interace
 //

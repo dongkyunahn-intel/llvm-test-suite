@@ -5,6 +5,7 @@
 //
 // Fails to release USM pointer on HIP for NVIDIA
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 #include <numeric>
 #include <sycl/sycl.hpp>

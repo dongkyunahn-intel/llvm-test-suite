@@ -5,6 +5,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

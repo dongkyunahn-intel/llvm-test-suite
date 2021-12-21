@@ -2,6 +2,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

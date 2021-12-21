@@ -9,6 +9,7 @@
 // The tested functionality is disabled with Level Zero until it is supported by
 // the plugin.
 // UNSUPPORTED: level_zero
+// UNSUPPORTED: esimd_emulator
 //==----------------------- InOrderQueueDeps.cpp ---------------------------==//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.

@@ -5,6 +5,7 @@
 //
 // TODO: Flaky fail on Level Zero that is why mark as unsupported temporarily.
 // UNSUPPORTED: level_zero
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <vector>

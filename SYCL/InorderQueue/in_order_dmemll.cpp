@@ -2,6 +2,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t1.out
 // RUN: %ACC_RUN_PLACEHOLDER %t1.out
 // RUN: %GPU_RUN_PLACEHOLDER %t1.out
+// UNSUPPORTED: esimd_emulator
 //
 //==----------- ordered_dmemll.cpp - Device Memory Linked List test --------==//
 // It uses an ordered queue where explicit waiting is not necessary between

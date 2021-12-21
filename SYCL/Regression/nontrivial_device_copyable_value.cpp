@@ -3,6 +3,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 //
 // Note: Tests that non-trivially copyable types marked as device-copyable are
 // copied and used correctly on the device.

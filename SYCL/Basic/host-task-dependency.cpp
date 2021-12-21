@@ -6,6 +6,7 @@
 // TODO: Behaviour is unstable for level zero on Windows. Enable when fixed.
 // TODO: The test is sporadically fails on CUDA. Enable when fixed.
 // UNSUPPORTED: (windows && level_zero) || cuda || hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 #define SYCL2020_DISABLE_DEPRECATION_WARNINGS
 

@@ -8,6 +8,7 @@
 // The test is using all available BEs but CUDA machine in CI does not have
 // functional OpenCL RT
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <iostream>

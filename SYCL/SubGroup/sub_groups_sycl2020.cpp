@@ -5,6 +5,7 @@
 // Assertion `!MHostPlatform && "Plugin is not available for Host."' failed on
 // Nvidia.
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 #include <sycl/sycl.hpp>
 

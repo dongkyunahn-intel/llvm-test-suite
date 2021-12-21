@@ -21,3 +21,5 @@
 // The test crashed on CUDA CI machines with the latest OpenCL GPU RT
 // (21.19.19792).
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
+

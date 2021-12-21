@@ -3,6 +3,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 //
 // Missing __spirv_SubgroupShuffleINTEL, __spirv_SubgroupShuffleUpINTEL,
 // __spirv_SubgroupShuffleDownINTEL, __spirv_SubgroupShuffleXorINTEL on AMD

@@ -8,6 +8,7 @@
 // parallel_for with reduction requires work group size not bigger than 1` on
 // Nvidia.
 // XFAIL: hip_amd || hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 // This test performs basic checks of parallel_for(nd_range, reduction, func)
 // with reduction and conditional increment of the reduction variable.

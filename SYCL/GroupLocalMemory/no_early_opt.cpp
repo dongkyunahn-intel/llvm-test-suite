@@ -4,6 +4,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 // The test checks that multiple calls to the same template instantiation of a
 // group local memory function result in separate allocations, even with device

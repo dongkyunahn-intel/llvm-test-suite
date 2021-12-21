@@ -1,4 +1,5 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // CUDA and HIP don't support SPIR-V.
 
 // FIXME Disabled fallback assert as it'll require either online linking or

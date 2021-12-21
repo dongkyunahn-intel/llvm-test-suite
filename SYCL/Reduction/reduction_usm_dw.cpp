@@ -5,6 +5,7 @@
 
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
+// UNSUPPORTED: esimd_emulator
 //
 // Missing __spirv_GroupIAdd, __spirv_GroupFMin, __spirv_GroupFMax on AMD, error
 // message `Group algorithms are not supported on host device` on Nvidia.

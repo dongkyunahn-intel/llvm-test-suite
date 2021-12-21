@@ -8,6 +8,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.ext.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.ext.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.ext.out
+// UNSUPPORTED: esimd_emulator
 
 //==-- kernel_name_class.cpp - SYCL kernel naming variants test ------------==//
 //

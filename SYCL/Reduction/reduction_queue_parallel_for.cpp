@@ -9,6 +9,7 @@
 
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
+// UNSUPPORTED: esimd_emulator
 
 // RUNx: %HOST_RUN_PLACEHOLDER %t.out
 // TODO: Enable the test for HOST when it supports ext::oneapi::reduce() and

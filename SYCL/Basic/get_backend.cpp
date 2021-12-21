@@ -3,6 +3,7 @@
 //
 // Failing on HIP AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 //
 //==----------------- get_backend.cpp ------------------------==//
 // This is a test of get_backend().

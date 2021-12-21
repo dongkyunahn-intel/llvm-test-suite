@@ -5,6 +5,7 @@
 // RUN: env SYCL_PI_TRACE=2 %ACC_RUN_PLACEHOLDER %t.out 2>&1 %ACC_CHECK_PLACEHOLDER
 //
 // XFAIL: hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 //==------------------- ReleaseResourcesTests.cpp --------------------------==//
 //

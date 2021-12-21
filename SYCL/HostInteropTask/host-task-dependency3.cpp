@@ -7,6 +7,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.out 10
 // RUN: %GPU_RUN_PLACEHOLDER %t.out 10
 // RUN: %ACC_RUN_PLACEHOLDER %t.out 10
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 #include <chrono>

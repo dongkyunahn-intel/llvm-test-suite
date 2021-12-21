@@ -3,6 +3,7 @@
 // RUN: %HOST_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+// UNSUPPORTED: esimd_emulator
 
 //==--- kernel_functor.cpp -
 // This test illustrates defining kernels as named function objects (functors)

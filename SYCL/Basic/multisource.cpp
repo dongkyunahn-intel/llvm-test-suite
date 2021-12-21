@@ -24,6 +24,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.fat
 // RUN: %GPU_RUN_PLACEHOLDER %t.fat
 // RUN: %ACC_RUN_PLACEHOLDER %t.fat
+// UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>
 

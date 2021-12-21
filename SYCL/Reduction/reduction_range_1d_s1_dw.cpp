@@ -5,6 +5,7 @@
 
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
+// UNSUPPORTED: esimd_emulator
 
 #include "reduction_range_scalar.hpp"
 

@@ -3,6 +3,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t1.out
 // RUN: %GPU_RUN_PLACEHOLDER %t1.out
 // RUN: %ACC_RUN_PLACEHOLDER %t1.out
+// UNSUPPORTED: esimd_emulator
 
 //==------ allocator_container.cpp - USM allocator in containers test ------==//
 //

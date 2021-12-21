@@ -8,6 +8,7 @@
 // Crashes on AMD, returns error "Barrier is not supported on the host device
 // yet." with Nvidia.
 // XFAIL: hip_amd || hip_nvidia
+// UNSUPPORTED: esimd_emulator
 
 //==--------device_event.cpp - SYCL class device_event test ----------------==//
 //

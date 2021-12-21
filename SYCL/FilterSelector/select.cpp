@@ -6,6 +6,7 @@
 //
 // Failing on HIP AMD
 // XFAIL: hip_amd
+// UNSUPPORTED: esimd_emulator
 
 //==------------------- select.cpp - filter_selector test ------------------==//
 //
