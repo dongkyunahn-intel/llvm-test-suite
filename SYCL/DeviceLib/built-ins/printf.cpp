@@ -1,10 +1,6 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // CUDA and HIP don't support printf.
-
-// esimd_emulator : Warning messages from CM_EMU library for emulation
-// support cause failures for 'CHECK' commands.
-// TODO - Remove "XFAIL" mark when those messages are suppressed
-// XFAIL: esimd_emulator
 
 //
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple %s -o %t.out
