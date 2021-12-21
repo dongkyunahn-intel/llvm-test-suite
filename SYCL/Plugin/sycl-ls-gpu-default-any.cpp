@@ -22,4 +22,3 @@
 // (21.19.19792).
 // UNSUPPORTED: cuda || hip
 // UNSUPPORTED: esimd_emulator
-
