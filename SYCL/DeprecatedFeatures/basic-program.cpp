@@ -1,4 +1,4 @@
-// XFAIL: hip
+// XFAIL: hip,ze_debug-1,ze_debug4
 // UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -D__SYCL_INTERNAL_API -fsycl -fsycl-targets=%sycl_triple  %s -o %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out

@@ -1,5 +1,6 @@
+// REQUIRES: TEMPORARY_DISABLED
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple %s -o %t.out
-// RUN: env SYCL_DEVICE_FILTER=%sycl_be %t.out
+// RUN: %t.out
 //
 // UNSUPPORTED: esimd_emulator
 //==----------------- get_backend.cpp ------------------------==//

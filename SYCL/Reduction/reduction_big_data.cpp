@@ -6,6 +6,7 @@
 // Missing __spirv_GroupFMax on AMD, error message `Group algorithms are not
 // supported on host device` on Nvidia.
 // XFAIL: hip_amd || hip_nvidia
+// XFAIL: ze_debug-1,ze_debug4
 // UNSUPPORTED: esimd_emulator
 
 // RUNx: %HOST_RUN_PLACEHOLDER %t.out

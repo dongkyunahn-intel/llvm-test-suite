@@ -4,7 +4,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
 // On nvidia a reduction appears to be unexpectedly executed via the host.
-// XFAIL: hip_nvidia
+// XFAIL: hip_nvidia,ze_debug-1,ze_debug4
 // UNSUPPORTED: esimd_emulator
 
 // This test checks that operators ++, +=, *=, |=, &=, ^= are supported

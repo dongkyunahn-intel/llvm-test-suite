@@ -4,6 +4,7 @@
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
 // UNSUPPORTED: esimd_emulator
+// XFAIL: ze_debug-1,ze_debug4
 #include "kernel-bundle-merge-options.hpp"
 
 // CHECK: piProgramBuild

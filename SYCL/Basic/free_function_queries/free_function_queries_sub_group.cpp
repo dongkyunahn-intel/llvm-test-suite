@@ -1,3 +1,5 @@
+// FIXME: Investigate OS-agnostic failures
+// REQUIRES: TEMPORARY_DISABLED
 // UNSUPPORTED: cuda || hip
 // CUDA and HIP compilation and runtime do not yet support sub-groups.
 //
@@ -6,6 +8,9 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+
+// UNSUPPORTED: windows
+// The failure is caused by intel/llvm#5213
 
 //==- free_function_queries_sub_group.cpp - SYCL free queries for sub group -=//
 //

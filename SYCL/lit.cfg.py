@@ -100,6 +100,11 @@ if lit_config.params.get('gpu-intel-dg1', False):
 if lit_config.params.get('matrix', False):
     config.available_features.add('matrix')
 
+#support for LIT parameter ze_debug<num>
+if lit_config.params.get('ze_debug'):
+    config.ze_debug = lit_config.params.get('ze_debug')
+    lit_config.note("ZE_DEBUG: "+config.ze_debug)
+
 # check if compiler supports CL command line options
 cl_options=False
 sp = subprocess.getstatusoutput(config.dpcpp_compiler+' /help')
@@ -142,12 +147,16 @@ if cl_options:
     config.substitutions.append( ('%include_option',  '/FI' ) )
     config.substitutions.append( ('%debug_option',  '/DEBUG' ) )
     config.substitutions.append( ('%cxx_std_option',  '/std:' ) )
+    config.substitutions.append( ('%fPIC', '') )
+    config.substitutions.append( ('%shared_lib', '/LD') )
 else:
     config.substitutions.append( ('%sycl_options', ' -lsycl -I' +
                                 config.sycl_include + ' -I' + os.path.join(config.sycl_include, 'sycl')) )
     config.substitutions.append( ('%include_option',  '-include' ) )
     config.substitutions.append( ('%debug_option',  '-g' ) )
     config.substitutions.append( ('%cxx_std_option',  '-std=' ) )
+    config.substitutions.append( ('%fPIC', '-fPIC') )
+    config.substitutions.append( ('%shared_lib', '-shared') )
 
 if not config.gpu_aot_target_opts:
     config.gpu_aot_target_opts = '"-device *"'
@@ -289,6 +298,9 @@ if 'gpu' in config.target_devices.split(','):
 
     if config.sycl_be == "level_zero":
         gpu_l0_check_substitute = "| FileCheck %s"
+        if lit_config.params.get('ze_debug'):
+            gpu_run_substitute = " env ZE_DEBUG={ZE_DEBUG} SYCL_DEVICE_FILTER=level_zero:gpu,host ".format(ZE_DEBUG=config.ze_debug)
+            config.available_features.add('ze_debug'+config.ze_debug)
 
     if platform.system() == "Linux":
         gpu_run_on_linux_substitute = "env SYCL_DEVICE_FILTER={SYCL_PLUGIN}:gpu,host ".format(SYCL_PLUGIN=config.sycl_be)
@@ -325,6 +337,37 @@ else:
 
 if find_executable('sycl-ls'):
     config.available_features.add('sycl-ls')
+
+# TODO properly set XPTIFW include and runtime dirs
+xptifw_lib_dir = os.path.join(config.dpcpp_root_dir, 'lib')
+xptifw_dispatcher = ""
+if platform.system() == "Linux":
+    xptifw_dispatcher = os.path.join(xptifw_lib_dir, 'libxptifw.so')
+elif platform.system() == "Windows":
+    xptifw_dispatcher = os.path.join(config.dpcpp_root_dir, 'bin', 'xptifw.dll')
+xptifw_includes = os.path.join(config.dpcpp_root_dir, 'include')
+if os.path.exists(xptifw_lib_dir) and os.path.exists(os.path.join(xptifw_includes, 'xpti', 'xpti_trace_framework.h')):
+    config.available_features.add('xptifw')
+    config.substitutions.append(('%xptifw_dispatcher', xptifw_dispatcher))
+    if platform.system() == "Linux":
+        config.substitutions.append(('%xptifw_lib', " -L{} -lxptifw -I{} ".format(xptifw_lib_dir, xptifw_includes)))
+    elif platform.system() == "Windows":
+        if cl_options:
+            config.substitutions.append(('%xptifw_lib', " {}/xptifw.lib /I{} ".format(xptifw_lib_dir, xptifw_includes)))
+        else:
+            config.substitutions.append(('%xptifw_lib', " {}/xptifw.lib -I{} ".format(xptifw_lib_dir, xptifw_includes)))
+
+
+llvm_tools = ["llvm-spirv", "llvm-link"]
+for llvm_tool in llvm_tools:
+  llvm_tool_path = find_executable(llvm_tool)
+  if llvm_tool_path:
+    lit_config.note("Found " + llvm_tool)
+    config.available_features.add(llvm_tool)
+    config.substitutions.append( ('%' + llvm_tool.replace('-', '_'),
+                                  os.path.realpath(llvm_tool_path)) )
+  else:
+    lit_config.warning("Can't find " + llvm_tool)
 
 if find_executable('cmc'):
     config.available_features.add('cm-compiler')
