@@ -4,7 +4,6 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 // XFAIL: cuda || hip
-// XFAIL: ze_debug-1,ze_debug4
 // UNSUPPORTED: esimd_emulator
 
 #include <CL/sycl.hpp>

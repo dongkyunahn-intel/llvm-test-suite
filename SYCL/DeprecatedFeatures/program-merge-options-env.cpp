@@ -3,7 +3,6 @@
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
 // UNSUPPORTED: esimd_emulator
-// XFAIL: ze_debug-1,ze_debug4
 #include "program-merge-options.hpp"
 
 // CHECK: piProgramBuild

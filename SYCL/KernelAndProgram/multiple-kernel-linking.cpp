@@ -1,6 +1,6 @@
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: ze_debug-1,ze_debug4
 // UNSUPPORTED: esimd_emulator
-// XFAIL: ze_debug-1,ze_debug4
 
 // RUN: %clangxx -fsycl -fno-sycl-early-optimizations -fsycl-device-code-split=per_kernel %s -o %t_per_kernel.out
 // RUN: %clangxx -fsycl -fno-sycl-early-optimizations -fsycl-device-code-split=per_source %s -o %t_per_source.out
