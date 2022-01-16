@@ -4,6 +4,7 @@
 
 // UNSUPPORTED: cuda
 // UNSUPPORTED: hip
+// UNSUPPORTED: esimd_emulator
 
 #include <sycl/sycl.hpp>
 
