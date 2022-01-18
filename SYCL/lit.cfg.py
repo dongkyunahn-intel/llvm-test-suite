@@ -189,7 +189,8 @@ supported_sycl_be = ['host',
                      'opencl',
                      'cuda',
                      'hip',
-                     'level_zero']
+                     'level_zero',
+                     'esimd_emulator']
 
 if config.sycl_be not in supported_sycl_be:
    lit_config.error("Unknown SYCL BE specified '" +
