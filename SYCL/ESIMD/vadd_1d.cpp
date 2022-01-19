@@ -100,4 +100,4 @@ int main(void) {
 }
 
 // 'CHECK' commands for checking 'vc-codegen' are moved to
-// 'sycl_esimd_mix_check_build_opts.cpp'
+// 'esimd_check_vc_codegen.cpp'
