@@ -32,7 +32,6 @@ int main(void) {
     e.wait();
   } catch (sycl::exception const &e) {
     std::cout << "SYCL exception caught: " << e.what() << '\n';
-
     return 1;
   }
   return 0;

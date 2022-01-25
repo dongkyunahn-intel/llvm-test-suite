@@ -7,6 +7,7 @@
 //
 // REQUIRES: linux,gpu
 // UNSUPPORTED: cuda || hip
+// XFAIL: esimd_emulator
 //
 // RUN: %clangxx -fsycl -fPIC -O3 %S/Inputs/complex-lib-sycl.cpp -c -o %t-lib-sycl.o
 // RUN: %clangxx -fsycl -fPIC -O3 %S/Inputs/complex-lib-esimd.cpp -c -o %t-lib-esimd.o

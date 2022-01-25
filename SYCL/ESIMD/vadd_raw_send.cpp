@@ -8,7 +8,7 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: gpu-intel-dg1,cuda,hip
-// TODO: esimd_emulator support - enable 'raw_send' intrinsic
+// TODO: esimd_emulator fails due to unimplemented 'raw_send' intrinsic
 // UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out

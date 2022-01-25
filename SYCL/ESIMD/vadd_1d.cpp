@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO: esimd_emulator support - enable __esimd_oword_ld_unaligned
+// TODO: esimd_emulator fails due to unimplemented __esimd_oword_ld_unaligned
 // XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
@@ -98,6 +98,3 @@ int main(void) {
   std::cout << (err_cnt > 0 ? "FAILED\n" : "Passed\n");
   return err_cnt > 0 ? 1 : 0;
 }
-
-// 'CHECK' commands for checking 'vc-codegen' are moved to
-// 'esimd_check_vc_codegen.cpp'

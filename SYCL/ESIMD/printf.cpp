@@ -9,7 +9,7 @@
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
 // CUDA and HIP don't support printf.
-// TODO: esimd_emulator support - enable 'single_task()' method
+// TODO: esimd_emulator fails due to unimplemented 'single_task()' method
 // UNSUPPORTED: esimd_emulator
 //
 // RUN: %clangxx -fsycl %s -o %t.out
