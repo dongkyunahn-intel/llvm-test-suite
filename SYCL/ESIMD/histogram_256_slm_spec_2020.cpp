@@ -1,6 +1,7 @@
 // TODO enable on Windows
 // REQUIRES: linux && gpu
 // UNSUPPORTED: cuda || hip
+// UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out 16
 
