@@ -27,9 +27,8 @@ int main(void) {
     auto dev = q.get_device();
     std::cout << "Running on " << dev.get_info<info::device::name>() << "\n";
 
-    auto e = q.submit([&](handler &cgh) {
-  cgh.single_task<class Test>([]{});
-    });
+    auto e =
+        q.submit([&](handler &cgh) { cgh.single_task<class Test>([] {}); });
     e.wait();
   } catch (sycl::exception const &e) {
     std::cout << "SYCL exception caught: " << e.what() << '\n';
