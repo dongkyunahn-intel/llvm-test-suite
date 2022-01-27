@@ -22,13 +22,17 @@ using namespace cl::sycl;
 
 int main(void) {
   try {
+    int data = 0;
     queue q(esimd_test::ESIMDSelector{}, esimd_test::createExceptionHandler());
 
     auto dev = q.get_device();
     std::cout << "Running on " << dev.get_info<info::device::name>() << "\n";
 
-    auto e =
-        q.submit([&](handler &cgh) { cgh.single_task<class Test>([] {}); });
+    cl::sycl::buffer<int, 1> buf(&data, cl::sycl::range<1>(1));
+    auto e = q.submit([&](handler &cgh) {
+      auto acc = buf.get_access<cl::sycl::access::mode::read_write>(cgh);
+      cgh.single_task<class Test>([=] { acc[0] += 1; });
+    });
     e.wait();
   } catch (sycl::exception const &e) {
     std::cout << "SYCL exception caught: " << e.what() << '\n';
