@@ -248,8 +248,8 @@ bool runTest(unsigned MZ, unsigned block_size, unsigned num_iters,
   cerr << "\nTranspose square matrix of size " << MZ << "\n";
   // printMatrix("Initial matrix:", M, MZ);
 
-  if ((q.get_backend() == cl::sycl::backend::ext_intel_esimd_emulator)
-      && (MZ > ESIMD_EMULATOR_SIZE_LIMIT)) {
+  if ((q.get_backend() == cl::sycl::backend::ext_intel_esimd_emulator) &&
+      (MZ > ESIMD_EMULATOR_SIZE_LIMIT)) {
     cerr << "Matrix Size larger than " << ESIMD_EMULATOR_SIZE_LIMIT
          << " is skipped"
          << "\n";
