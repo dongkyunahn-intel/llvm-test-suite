@@ -1,6 +1,6 @@
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// Sub-group is not supported
+// TODO: esimd_emulator fails due to unimplemented sub-group support
 // UNSUPPORTED: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
