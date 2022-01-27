@@ -177,10 +177,11 @@ if config.sycl_be.startswith("PI_"):
 config.sycl_be = config.sycl_be.lower()
 
 # Replace deprecated backend names
-deprecated_names_mapping = {'cuda'       : 'ext_oneapi_cuda',
-                            'hip'        : 'ext_oneapi_hip',
-                            'level_zero' : 'ext_oneapi_level_zero',
-                            'esimd_cpu'  : 'ext_intel_esimd_emulator'}
+deprecated_names_mapping = {'cuda'           : 'ext_oneapi_cuda',
+                            'hip'            : 'ext_oneapi_hip',
+                            'level_zero'     : 'ext_oneapi_level_zero',
+                            'esimd_cpu'      : 'ext_intel_esimd_emulator',
+                            'esimd_emulator' : 'ext_intel_esimd_emulator'}
 if config.sycl_be in deprecated_names_mapping.keys():
     config.sycl_be = deprecated_names_mapping[config.sycl_be]
 
