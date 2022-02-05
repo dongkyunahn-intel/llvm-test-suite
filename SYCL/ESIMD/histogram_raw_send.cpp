@@ -12,6 +12,7 @@
 // TODO: esimd_emulator fails due to outdated __esimd_media_ld
 // XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
+// RUN: %HOST_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 // The test checks raw send functionality with atomic write implementation
