@@ -8,8 +8,7 @@
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
 // TODO: esimd_emulator fails due to SEGFAULT error from __esimd_svm_scatter
-//       Marked as 'UNSUPPORTED' as test is stuck at SEGFAULT exception
-// UNSUPPORTED: esimd_emulator
+// XFAIL: esimd_emulator
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 
