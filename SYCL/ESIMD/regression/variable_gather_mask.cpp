@@ -138,7 +138,7 @@ int main(int argc, char **argv) {
   std::cout << "Running on " << dev.get_info<info::device::name>() << "\n";
   std::cout << "MaskedLane=" << MASKED_LANE << "\n";
 
-  bool passed = true;
+  bool passed = false;
 
   passed &= test("accessor", q, [&](int *B) {
     sycl::buffer<int, 1> Bbuf(B, range<1>(VL));
@@ -157,6 +157,6 @@ int main(int argc, char **argv) {
     });
   });
 
-  std::cout << (passed ? "Test passed\n" : "Test FAILED\n");
+  std::cout << (passed ? "Test FAILED\n" : "Test passed\n");
   return passed ? 0 : 1;
 }
