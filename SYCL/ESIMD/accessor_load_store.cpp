@@ -19,6 +19,7 @@
 
 #include <CL/sycl.hpp>
 #include <iostream>
+#include <limits>
 #include <sycl/ext/intel/experimental/esimd.hpp>
 
 using namespace cl::sycl;
@@ -34,7 +35,7 @@ template <typename T> struct Kernel {
     using namespace sycl::ext::intel::experimental::esimd;
     uint32_t ii = static_cast<uint32_t>(i.get(0));
     T v = scalar_load<T>(acc, ii * sizeof(T));
-    v += ii;
+    v *= ii;
     scalar_store<T>(acc, ii * sizeof(T), v);
   }
 };
@@ -48,10 +49,15 @@ template <typename T> struct char_to_int {
 
 template <typename T> bool test(queue q, size_t size) {
   std::cout << "Testing T=" << typeid(T).name() << "...\n";
+  esimd_test::input_gen::Generator<T> gen(
+      std::numeric_limits<T>::min() / (T)size,
+      std::numeric_limits<T>::max() / (T)size);
   T *A = new T[size];
+  T *G = new T[size];
 
   for (unsigned i = 0; i < size; ++i) {
-    A[i] = (T)i;
+    A[i] = gen();
+    G[i] = A[i] * (T)i;
   }
 
   try {
@@ -66,19 +72,18 @@ template <typename T> bool test(queue q, size_t size) {
   } catch (sycl::exception const &e) {
     std::cout << "SYCL exception caught: " << e.what() << '\n';
     delete[] A;
+    delete[] G;
     return false; // not success
   }
 
   int err_cnt = 0;
 
   for (unsigned i = 0; i < size; ++i) {
-    T gold = (T)i + (T)i;
-
-    if (A[i] != gold) {
+    if (A[i] != G[i]) {
       if (++err_cnt < 10) {
         using T1 = typename char_to_int<T>::type;
         std::cout << "failed at index " << i << ": " << (T1)A[i]
-                  << " != " << (T1)gold << " (gold)\n";
+                  << " != " << (T1)G[i] << " (gold)\n";
       }
     }
   }
@@ -89,6 +94,7 @@ template <typename T> bool test(queue q, size_t size) {
   }
 
   delete[] A;
+  delete[] G;
 
   std::cout << (err_cnt > 0 ? "  FAILED\n" : "  Passed\n");
   return err_cnt > 0 ? false : true;

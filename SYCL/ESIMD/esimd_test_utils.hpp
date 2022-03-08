@@ -18,6 +18,7 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <random>
 #include <string>
 #include <vector>
 
@@ -461,4 +462,28 @@ inline void iterate_ops(OpSeq<OpClass, Ops...> ops, F f) {
   ConstexprForLoop<0, sizeof...(Ops)>::unroll(act);
 }
 
+/* Randomized input generator */
+namespace input_gen {
+template <typename T> class Generator {
+public:
+  explicit Generator() : _gen(std::random_device{}()), _dist() {}
+  Generator(T ub) : _gen(std::random_device{}()), _dist(0, ub) {}
+  Generator(T lb, T ub) : _gen(std::random_device{}()), _dist(lb, ub) {}
+
+  T operator()() { return static_cast<T>(_dist(_gen)); }
+
+private:
+  using dist_t = typename std::conditional<
+      std::is_integral<T>::value,
+      typename std::conditional<std::is_same<T, char>::value ||
+                                    std::is_same<T, signed char>::value ||
+                                    std::is_same<T, unsigned char>::value,
+                                std::uniform_int_distribution<int>,
+                                std::uniform_int_distribution<T>>::type,
+      std::uniform_real_distribution<T>>::type;
+
+  std::mt19937_64 _gen;
+  dist_t _dist;
+};
+} // namespace input_gen
 } // namespace esimd_test
