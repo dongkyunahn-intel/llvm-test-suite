@@ -7,10 +7,6 @@
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
 // UNSUPPORTED: cuda || hip
-// TODO: esimd_emulator fails due to unimplemented 'single_task()' method
-// XFAIL: esimd_emulator
-// TODO: fails on OpenCL - https://github.com/intel/llvm-test-suite/issues/901
-// UNSUPPORTED: opencl
 // RUN: %clangxx -fsycl %s -fsycl-device-code-split=per_kernel -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 //
