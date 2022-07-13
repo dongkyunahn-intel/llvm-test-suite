@@ -3,6 +3,9 @@
 
    Reference for half-type conversion : https://evanw.github.io/float-toy/
  */
+// REQUIRES: gpu && esimd_emulator
+// RUN: %clangxx -fsycl -g %s -o %t.out
+// RUN: %GPU_RUN_PLACEHOLDER %t.out
 
 #include "../esimd_test_utils.hpp"
 
