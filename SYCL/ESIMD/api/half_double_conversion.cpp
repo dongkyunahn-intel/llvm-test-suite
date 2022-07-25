@@ -40,7 +40,7 @@ template <class Ty> bool test(queue q, int inc){
         simd<Ty, 1> vec = gather<Ty,1>(data,offsets);
         vec[0] += (Ty)inc;
         /// For 'half' type, float2Half is called unnecessarily for
-        /// 2nd argument of 'scalar_store' which is already correct in
+        /// 3rd argument of 'scalar_store' which is already correct in
         /// half-type value
         scalar_store<Ty>(acc,0,vec[0]);
       });
