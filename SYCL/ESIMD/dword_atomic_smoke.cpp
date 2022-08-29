@@ -8,6 +8,8 @@
 // This test checks DWORD atomic operations.
 //===----------------------------------------------------------------------===//
 // REQUIRES: gpu
+// TODO: esimd_emulator fails due to unsupported __esimd_svm_atomic0/1/2
+// XFAIL: esimd_emulator
 // UNSUPPORTED: cuda || hip
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
